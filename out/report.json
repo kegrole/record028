@@ -1,0 +1,172 @@
+{
+  "enforced": [
+    {
+      "directive": "script-src",
+      "request_id": "r1-cdn-p1",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r2-cdn-p2",
+      "allowed": false,
+      "reason": "多策略交集拒绝：没有任何 host-source、scheme-source、'self' 或 nonce 匹配该外链脚本"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r3-correct-nonce",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r4-wrong-nonce",
+      "allowed": false,
+      "reason": "多策略交集拒绝：nonce 与声明值逐字节不一致"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r5-unsafe-inline",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r6-inline-denied",
+      "allowed": false,
+      "reason": "多策略交集拒绝：缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r7-correct-hash",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r8-changed-hash",
+      "allowed": false,
+      "reason": "多策略交集拒绝：脚本内容的哈希基值与所有声明哈希均不一致"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r9-eval-allowed",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r10-invalid-none",
+      "allowed": false,
+      "reason": "多策略交集拒绝：'none' 与其它来源并存，该 source-list 整体无效并禁止全部"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r11-intersection",
+      "allowed": false,
+      "reason": "多策略交集拒绝：没有任何 host-source、scheme-source、'self' 或 nonce 匹配该外链脚本"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r12-multiple-policies-allow",
+      "allowed": true,
+      "reason": "所有适用策略均允许；交集结果为允许"
+    }
+  ],
+  "report_only": [
+    {
+      "directive": "script-src",
+      "request_id": "r1-cdn-p1",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 没有任何 host-source、scheme-source、'self' 或 nonce 匹配该外链脚本"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r2-cdn-p2",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 没有任何 host-source、scheme-source、'self' 或 nonce 匹配该外链脚本"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r3-correct-nonce",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r4-wrong-nonce",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r5-unsafe-inline",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r6-inline-denied",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r7-correct-hash",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r8-changed-hash",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少匹配的 nonce、哈希或 'unsafe-inline'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r9-eval-allowed",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 缺少 'unsafe-eval'，动态求值被拒绝"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r10-invalid-none",
+      "allowed": true,
+      "reason": "[report-only:ro1-typo] 来源表达式匹配：'self'"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r11-intersection",
+      "allowed": false,
+      "reason": "[report-only:ro1-typo] 没有任何 host-source、scheme-source、'self' 或 nonce 匹配该外链脚本"
+    },
+    {
+      "directive": "script-src",
+      "request_id": "r12-multiple-policies-allow",
+      "allowed": true,
+      "reason": "[report-only:ro1-typo] 来源表达式匹配：'self'"
+    }
+  ],
+  "unsafe_inline_locations": [
+    {
+      "policy_id": "p5-inline-eval",
+      "directive": "script-src",
+      "mode": "enforce"
+    }
+  ],
+  "unsafe_eval_locations": [
+    {
+      "policy_id": "p5-inline-eval",
+      "directive": "script-src",
+      "mode": "enforce"
+    }
+  ],
+  "summary": {
+    "policy_count": 7,
+    "request_count": 12,
+    "allowed": 6,
+    "denied": 6,
+    "report_only_allowed": 2,
+    "report_only_denied": 10
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "policies": [
+    {
+      "id": "p1-cdn",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'self' https://cdn.example.com"
+    },
+    {
+      "id": "p2-self-only",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'self'"
+    },
+    {
+      "id": "p3-nonce",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'nonce-correct-nonce-42'"
+    },
+    {
+      "id": "p4-sha256",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'sha256-zX7EsrmGhFUKmpfx7CNjUxC3MwA34cj7M3slNo4T5dk'"
+    },
+    {
+      "id": "p5-inline-eval",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'unsafe-inline' 'unsafe-eval'"
+    },
+    {
+      "id": "p6-invalid-none",
+      "mode": "enforce",
+      "document_origin": "https://app.example.com",
+      "header": "script-src 'none' 'self'; img-src 'none'"
+    },
+    {
+      "id": "ro1-typo",
+      "mode": "report-only",
+      "document_origin": "https://app.example.com",
+      "header": "scirpt-src 'self'; foo-src https://ignored.example; script-src 'self'"
+    }
+  ]
+}

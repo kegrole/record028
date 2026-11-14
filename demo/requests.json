@@ -1,0 +1,77 @@
+{
+  "requests": [
+    {
+      "id": "r1-cdn-p1",
+      "type": "external",
+      "url": "https://cdn.example.com/app.js",
+      "policy_ids": ["p1-cdn"]
+    },
+    {
+      "id": "r2-cdn-p2",
+      "type": "external",
+      "url": "https://cdn.example.com/app.js",
+      "policy_ids": ["p2-self-only"]
+    },
+    {
+      "id": "r3-correct-nonce",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'nonce';",
+      "nonce": "correct-nonce-42",
+      "policy_ids": ["p3-nonce"]
+    },
+    {
+      "id": "r4-wrong-nonce",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'nonce';",
+      "nonce": "wrong-nonce-99",
+      "policy_ids": ["p3-nonce"]
+    },
+    {
+      "id": "r5-unsafe-inline",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'inline';",
+      "policy_ids": ["p5-inline-eval"]
+    },
+    {
+      "id": "r6-inline-denied",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'inline';",
+      "policy_ids": ["p2-self-only"]
+    },
+    {
+      "id": "r7-correct-hash",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'allowed';",
+      "policy_ids": ["p4-sha256"]
+    },
+    {
+      "id": "r8-changed-hash",
+      "type": "inline",
+      "inline_text": "window.cspDemo = 'blocked';",
+      "policy_ids": ["p4-sha256"]
+    },
+    {
+      "id": "r9-eval-allowed",
+      "type": "eval",
+      "policy_ids": ["p5-inline-eval"]
+    },
+    {
+      "id": "r10-invalid-none",
+      "type": "external",
+      "url": "https://app.example.com/anything.js",
+      "policy_ids": ["p6-invalid-none"]
+    },
+    {
+      "id": "r11-intersection",
+      "type": "external",
+      "url": "https://cdn.example.com/app.js",
+      "policy_ids": ["p1-cdn", "p2-self-only"]
+    },
+    {
+      "id": "r12-multiple-policies-allow",
+      "type": "external",
+      "url": "https://app.example.com/home.js",
+      "policy_ids": ["p1-cdn", "p2-self-only"]
+    }
+  ]
+}
